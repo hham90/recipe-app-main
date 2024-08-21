@@ -1,0 +1,39 @@
+<!-- {% extends 'recipes/base.html' %} -->
+
+{% block content %}
+<form method="post" class="search-container">
+    <h1">Search Recipes</h1>
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="id_recipe_diff"></label>
+        {{ form.recipe_diff }}
+    </div>
+    <button type="submit" class="btn">Search</button>
+</form>
+
+{% if recipe_df %}
+{{recipe_df|safe}}
+<br>
+<img src="data:image/png;base64, {{chart|safe}}">
+<div class="recipe-flex-container">
+    <div class="recipe-center-div">
+        <div class="grid-layout">
+            {% for recipe in qs %}
+            <div>
+                <a href="{% url 'recipes:recipedetail' pk=recipe.pk %}">
+                    <img src="{{ recipes.pic }}" class="recipe-image">
+                    <div>
+                        <p>{{ recipe.name }}</p>
+                    </div>
+                </a>
+            </div>
+            {% empty %}
+            <p class="no-recipes">No recipes found.</p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% else %}
+<p class="no-recipes">No recipes found.</p>
+{% endif %}
+{% endblock %}
