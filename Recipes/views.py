@@ -66,4 +66,4 @@ def records(request):
         "qs": qs,
     }
 
-    return render(request, "recipes/search.html", context)
+    return render(request, "Recipes/search.html", context)

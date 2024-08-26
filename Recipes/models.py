@@ -9,13 +9,13 @@ class Recipes(models.Model):
     ingredients = models.TextField()
     cooking_time = models.FloatField()
     difficulty = models.CharField(max_length=20, blank=True)
-    pic = models.ImageField(upload_to='recipes', default='no_picture.jpg')
+    pic = models.ImageField(upload_to='Recipes', default='no_picture.jpg')
 
     def __str__(self):
         return str(self.name)
 
     def get_absolute_url(self):
-        return reverse ( 'recipes:recipedetail', kwargs={'pk': self.pk})
+        return reverse ( 'Recipes:recipedetail', kwargs={'pk': self.pk})
 
     def calculate_difficulty(self):
         ingredients = self.ingredients.split(", ")
