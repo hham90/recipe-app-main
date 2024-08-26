@@ -23,7 +23,7 @@ def login_view(request):
            if user is not None:                    #if user is authenticated
           #then use pre-defined Django function to login
                login(request, user)
-               return redirect('recipes:list')
+               return redirect('Recipes:list')
        else:
            error_message ='ooops.. something went wrong'   #print error message
 
