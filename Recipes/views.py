@@ -14,15 +14,15 @@ import pandas as pd
 
 # Create your views here.
 def home(request):
-    return render(request, 'recipes/home.html')
+    return render(request, 'Recipes/home.html')
 
 class RecipeListView(LoginRequiredMixin, ListView):
     model = Recipes
-    template_name = 'recipes/recipelist.html'
+    template_name = 'Recipes/recipelist.html'
 
 class RecipeDetailView(LoginRequiredMixin, DetailView):
     model = Recipes
-    template_name = 'recipes/recipedetail.html'
+    template_name = 'Recipes/recipedetail.html'
 
 def records(request):
     form = RecipesSearchForm(request.POST or None)
