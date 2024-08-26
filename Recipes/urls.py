@@ -6,7 +6,7 @@ from .views import records
 from django.conf import settings
 from django.conf.urls.static import static
 
-app_name = 'recipes'
+app_name = 'Recipes'
 
 urlpatterns = [
    path('', home, name='home'),

@@ -18,11 +18,11 @@ def home(request):
 
 class RecipeListView(LoginRequiredMixin, ListView):
     model = Recipes
-    template_name = 'Recipes/recipelist.html'
+    template_name = 'recipes/recipelist.html'
 
 class RecipeDetailView(LoginRequiredMixin, DetailView):
     model = Recipes
-    template_name = 'Recipes/recipedetail.html'
+    template_name = 'recipes/recipedetail.html'
 
 def records(request):
     form = RecipesSearchForm(request.POST or None)
